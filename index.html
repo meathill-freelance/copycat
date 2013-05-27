@@ -26,21 +26,51 @@
       <div class="m">
         <header><img src="img/header.jpg" width="980" height="380" /></header>
         <div id="question">
-          第一题：下面几个iCON中，哪个是真的神庙逃亡？
+          <script type="text/html-template">
+            第{{index}}题：以下应用中，哪个是真正的<strong>{{name}}</strong>
+          </script>
         </div>
         <ol id="options">
-          <li><img src="img/icon.jpg" width="64" height="64" /></li>
-          <li><img src="img/icon.jpg" width="64" height="64" /></li>
-          <li><img src="img/icon.jpg" width="64" height="64" /></li>
-          <li><img src="img/icon.jpg" width="64" height="64" /></li>
+          <script type="text/html-template">
+            {{#each options}}
+            <li{{#if isRight}} class="bingo"{{/if}}><img src="img/icons/{{icon}}" width="64" height="64" /></li>
+            {{/each}}
+          </script>
         </ol>
       </div>
       <aside class="r">&nbsp;</aside>
     </div>
 
+    <div id="cover"></div>
+    <div id="popup">
+      <script type="text/html-template">
+        <button type="button" class="close">&times;</button>
+        <div class="rows">
+          <div class="icon">
+            <img src="img/icons/{{icon}}" width="135" height="135" />
+          </div>
+          <div class="description">
+            <h3>正确答案：{{i}}</h3>
+            <p>游戏简介：{{description}}</p>
+            <button type="button" class="next-button">下一题</button>
+          </div>
+        </div>
+        <ul class="others">
+          {{#each options}}
+          <li>
+            <img src="img/icon/{{icon}}" width="64" height="64" /><br />
+            <p>{{title}}</p>
+          </li>
+          {{/options}}
+        </ul>
+      </script>
+    </div>
+
     <script src="//code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.0.min.js"><\/script><script src="js/vendor/jquery-migrate-1.2.1.min.js"><\/script>')</script>
+    <script src="js/vendor/handlebars.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 

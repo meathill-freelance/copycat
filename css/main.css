@@ -102,6 +102,8 @@ body {
   display: -webkit-box;
   display: -moz-box;
   box-orient:horizontal;
+  -webkit-box-orient:horizontal;
+  -moz-box-orient:horizontal;
   width:100%;
 }
 #main-body .l,
@@ -126,13 +128,16 @@ body {
   margin:40px 0 80px 135px;
   font:bold 24px/30px Microsoft Yahei, Simhei;
 }
+#question strong {
+  color:#E33;
+}
 #options {
   margin-left:135px;
   padding: 0;
 }
 #options li {
   float:left;
-  list-style: UPPER-LATIN;
+  list-style: upper-latin;
   font:24px/30px Arial;
   margin-left:80px;
   padding: 10px;
@@ -143,10 +148,71 @@ body {
   box-shadow: inset 1px 1px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
-
-
-
-
+#cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.2;
+  z-index: 1;
+}
+#popup {
+  width:400px;
+  padding: 20px;
+  position: absolute;
+  top:470px;
+  left:50%;
+  margin-left: -220px;
+  background: #FFF;
+  border: 1px solid #CCC;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+#popup .rows {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  box-orient:horizontal;
+  -webkit-box-orient:horizontal;
+  -moz-box-orient:horizontal;
+}
+#popup .icon {
+  width:135px;
+  margin-right: 20px;
+}
+#popup .description {
+  box-flex:1;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+}
+#popup h3 {
+  font:bold 24px/30px Microsoft Yahei, Simhei;
+  color: #2EFF43;
+}
+#popup .next-button {
+  padding: 0;
+  margin:0;
+  width:200px;
+  font:bold 16px/30px Simsun;
+  color:#FFF;
+  text-align: center;
+  background: linear-gradient(bottom, #2EFF43 #2E1);
+}
+#popup .others {
+  margin:0;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  box-orient:horizontal;
+  -webkit-box-orient:horizontal;
+  -moz-box-orient:horizontal;
+}
+.others li {
+  list-style: none;
+  text-align: center;
+  box-flex:1;
+  -webkit-box-flex:1;
+  -moz-box-flex:1;
+}
 
 
 
