@@ -12,7 +12,7 @@ $(function () {
     }
     var stageData = CONFIG[index];
     stageData.index = hanzi[index];
-    $('#question').text(outputQuestion(stageData));
+    $('#question').html(outputQuestion(stageData));
     $('#options').html(outputOptions(stageData));
   }
   function showRightPopup() {
@@ -28,7 +28,7 @@ $(function () {
   var stage = 0,
       right = 0,
       hanzi = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'],
-      outputQuestion = createTemplate('template'),
+      outputQuestion = createTemplate('question'),
       outputOptions = createTemplate('options'),
       outputPopup = createTemplate('popup');
   $('#template, #options').empty();
@@ -42,7 +42,6 @@ $(function () {
       showWrongPopup();
     }
     stage += 1;
-    showStage(stage);
   });
 
   // statr
