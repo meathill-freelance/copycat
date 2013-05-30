@@ -12,6 +12,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+    <link rel="stylesheet" href="css/animate.min.css" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -47,7 +48,7 @@
         <button type="button" class="close">&times;</button>
         <div class="rows">
           <div class="icon">
-            <img src="img/icons/{{icon}}" width="135" height="135" />
+            <img src="img/icons/{{stage}}-0.jpg" width="120" height="120" />
           </div>
           <div class="description">
             <h3>正确答案：{{i}}</h3>
@@ -58,16 +59,16 @@
         <ul class="others">
           {{#each options}}
           <li>
-            <img src="img/icon/{{icon}}" width="64" height="64" /><br />
+            <img src="img/icons/{{icon}}" width="64" height="64" /><br />
             <p>{{title}}</p>
           </li>
-          {{/options}}
+          {{/each}}
         </ul>
       </script>
     </div>
     <div id="final-popup" class="hidden">
       <script type="text/html-template">
-        <h3>{{title}}</h3>
+        <h3>恭喜你获得{{right}}分！</h3>
         <p>{{description}}</p>
         <a href="#" class="share-button">分享到微博</a>
       </script>
@@ -77,6 +78,7 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.0.min.js"><\/script><script src="js/vendor/jquery-migrate-1.2.1.min.js"><\/script>')</script>
     <script src="js/vendor/handlebars.js"></script>
+    <script src="js/vendor/underscore-min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>

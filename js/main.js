@@ -16,13 +16,42 @@ $(function () {
     $('#options').html(outputOptions(stageData));
   }
   function showRightPopup() {
-
+    var success = {
+      stage: stage,
+      i: 'D',
+      description: CONFIG[stage].description
+    }
+    showPopup(success);
   }
   function showWrongPopup() {
-
+    var error = {
+      stage: stage,
+      i: 'D',
+      description: CONFIG[stage].description
+    };
+    error.options = CONFIG[stage].options.slice(1);
+    showPopup(error);
   }
   function showFinalPopup() {
-
+    var final = {
+      right: right * 10
+    }
+    if (right < 6) {
+      final.description = FINAL_WORD[0].description;
+    } else if (right < 10) {
+      final.description = FINAL_WORD[1].description;
+    } else {
+      final.description = FINAL_WORD[2].description;
+    }
+    showPopup(final, 'final-popup');
+  }
+  function showPopup(data, popup) {
+    popup = popup || 'popup';
+    $('#cover').removeClass('hidden');
+    $('#' + popup)
+      .html(outputPopup(data))
+      .removeClass('hidden')
+      .addClass('animated fadeInUp');
   }
 
   var stage = 0,
@@ -43,6 +72,14 @@ $(function () {
     }
     stage += 1;
   });
+  $('#popup').on('click', '.close,.next-button', function (event) {
+    $('#cover').addClass('hidden');
+    $('#popup').addClass('fadeOutDown');
+    showStage(stage);
+    setTimeout(function () {
+      $('#popup').addClass('hidden');
+    }, 1000);
+  })
 
   // statr
   showStage(stage);

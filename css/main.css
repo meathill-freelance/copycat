@@ -125,21 +125,21 @@ body {
 }
 
 #question {
-  margin:40px 0 80px 135px;
+  margin:40px 0 60px 135px;
   font:bold 24px/30px Microsoft Yahei, Simhei;
 }
 #question strong {
   color:#E33;
 }
 #options {
-  margin-left:135px;
+  margin:0 100px 0 135px;
   padding: 0;
 }
 #options li {
   float:left;
   list-style: upper-latin;
   font:24px/30px Arial;
-  margin-left:80px;
+  margin:0 0 10px 80px;
   padding: 10px;
 }
 #options li:hover {
@@ -153,19 +153,22 @@ body {
   width: 100%;
   height: 100%;
   background: #000;
-  opacity: 0.2;
+  opacity: 0.4;
   z-index: 1;
+  top:0;
+  left:0;
 }
 #popup {
-  width:400px;
+  width:580px;
   padding: 20px;
   position: absolute;
   top:470px;
   left:50%;
-  margin-left: -220px;
+  margin-left: -310px;
   background: #FFF;
   border: 1px solid #CCC;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 #popup .rows {
   display: box;
@@ -176,17 +179,22 @@ body {
   -moz-box-orient:horizontal;
 }
 #popup .icon {
-  width:135px;
-  margin-right: 20px;
+  width:120px;
+  margin-right: 15px;
 }
 #popup .description {
   box-flex:1;
   -webkit-box-flex:1;
   -moz-box-flex:1;
+  font:14px/22px Simsun;
 }
 #popup h3 {
   font:bold 24px/30px Microsoft Yahei, Simhei;
   color: #2EFF43;
+  margin:0 0 5px;
+}
+#popup p {
+  margin:0 0 5px;
 }
 #popup .next-button {
   padding: 0;
@@ -195,10 +203,13 @@ body {
   font:bold 16px/30px Simsun;
   color:#FFF;
   text-align: center;
-  background: linear-gradient(bottom, #2EFF43 #2E1);
+  background: linear-gradient(to bottom, #2EFF43, #2E1);
+  border: none;
+  cursor: pointer;
 }
 #popup .others {
-  margin:0;
+  margin:15px 0 0;
+  padding: 0;
   display: box;
   display: -webkit-box;
   display: -moz-box;
@@ -212,8 +223,21 @@ body {
   box-flex:1;
   -webkit-box-flex:1;
   -moz-box-flex:1;
+  font:12px/20px simsun;
 }
-
+#popup .close {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right:10px;
+  top:15px;
+  cursor: pointer;
+  width: 20px;
+  height:20px;
+  margin:0;
+  padding: 0;
+  text-align: center;
+}
 
 
 
