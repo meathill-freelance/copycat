@@ -141,6 +141,7 @@ body {
   font:24px/30px Arial;
   margin:0 0 10px 80px;
   padding: 10px;
+  cursor: pointer;
 }
 #options li:hover {
   background: #CCC;
@@ -158,7 +159,8 @@ body {
   top:0;
   left:0;
 }
-#popup {
+#popup,
+#final-popup {
   width:580px;
   padding: 20px;
   position: absolute;
@@ -188,12 +190,14 @@ body {
   -moz-box-flex:1;
   font:14px/22px Simsun;
 }
-#popup h3 {
+#popup h3,
+#final-popup h3 {
   font:bold 24px/30px Microsoft Yahei, Simhei;
   color: #2EFF43;
   margin:0 0 5px;
 }
-#popup p {
+#popup p,
+#final-popup p{
   margin:0 0 5px;
 }
 #popup .next-button {
@@ -225,7 +229,7 @@ body {
   -moz-box-flex:1;
   font:12px/20px simsun;
 }
-#popup .close {
+.close {
   background: transparent;
   border: none;
   position: absolute;

@@ -12,23 +12,23 @@ $(function () {
     }
     var stageData = CONFIG[index];
     stageData.index = hanzi[index];
+    stageData.options = _.shuffle(stageData.options);
     $('#question').html(outputQuestion(stageData));
     $('#options').html(outputOptions(stageData));
   }
-  function showRightPopup() {
-    var success = {
+  function getBasicInfo(stage) {
+    return {
       stage: stage,
-      i: 'D',
+      i: String.fromCharCode($('.bingo').index() + 65),
       description: CONFIG[stage].description
-    }
+    };
+  }
+  function showRightPopup() {
+    var success = getBasicInfo(stage);
     showPopup(success);
   }
   function showWrongPopup() {
-    var error = {
-      stage: stage,
-      i: 'D',
-      description: CONFIG[stage].description
-    };
+    var error = getBasicInfo(stage);
     error.options = CONFIG[stage].options.slice(1);
     showPopup(error);
   }
@@ -47,9 +47,10 @@ $(function () {
   }
   function showPopup(data, popup) {
     popup = popup || 'popup';
+    var output = popup === 'popup' ? outputPopup : outputFinal;
     $('#cover').removeClass('hidden');
     $('#' + popup)
-      .html(outputPopup(data))
+      .html(output(data))
       .removeClass('hidden')
       .addClass('animated fadeInUp');
   }
@@ -59,7 +60,8 @@ $(function () {
       hanzi = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'],
       outputQuestion = createTemplate('question'),
       outputOptions = createTemplate('options'),
-      outputPopup = createTemplate('popup');
+      outputPopup = createTemplate('popup'),
+      outputFinal = createTemplate('final-popup');
   $('#template, #options').empty();
 
   // events
@@ -77,10 +79,12 @@ $(function () {
     $('#popup').addClass('fadeOutDown');
     showStage(stage);
     setTimeout(function () {
-      $('#popup').addClass('hidden');
+      $('#popup')
+        .addClass('hidden')
+        .removeClass('fadeInUp fadeOutDown');
     }, 1000);
   })
 
-  // statr
+  // start
   showStage(stage);
 });
