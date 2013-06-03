@@ -12,7 +12,6 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="css/animate.min.css" />
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -22,24 +21,24 @@
       <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-    <div id="main-body">
-      <aside class="l">$nbsp;</aside>
-      <div class="m">
-        <header><img src="img/header.jpg" width="980" height="380" /></header>
-        <div id="question">
-          <script type="text/html-template">
-            第{{index}}题：以下应用中，哪个是真正的<strong>{{name}}</strong>
-          </script>
-        </div>
-        <ol id="options">
-          <script type="text/html-template">
-            {{#each options}}
-            <li{{#if isRight}} class="bingo"{{/if}}><img src="img/icons/{{icon}}" width="64" height="64" /></li>
-            {{/each}}
-          </script>
-        </ol>
+    <div id="loading" class="animated flash">
+      <p>加载中，请稍候</p>
+    </div>
+
+    <header class="hidden"></header>
+    <div id="main-body" class="hidden">
+      <div id="question">
+        <script type="text/html-template">
+          第{{index}}题：以下应用中，哪个是真正的<strong>{{name}}</strong>
+        </script>
       </div>
-      <aside class="r">&nbsp;</aside>
+      <ol id="options">
+        <script type="text/html-template">
+          {{#each options}}
+          <li{{#if isRight}} class="bingo"{{/if}}><img src="img/icons/{{icon}}" width="64" height="64" /></li>
+          {{/each}}
+        </script>
+      </ol>
     </div>
 
     <div id="cover" class="hidden"></div>
@@ -70,17 +69,15 @@
       <script type="text/html-template">
         <h3>恭喜你获得{{right}}分！</h3>
         <p>{{description}}</p>
-        <a href="#" class="share-button">分享到微博</a>
+        <a href="javascript:postToWeibo();" class="share-button">分享到新浪微博</a>
+        <a href="javascript:postToWb();" class="share-button">分享到腾讯微博</a>
       </script>
     </div>
 
-    <script src="//code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.0.min.js"><\/script><script src="js/vendor/jquery-migrate-1.2.1.min.js"><\/script>')</script>
-    <script src="js/vendor/handlebars.js"></script>
-    <script src="js/vendor/underscore-min.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/plugins.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script><script src="js/vendor/jquery-migrate-1.2.1.min.js"><\/script>')</script>
+    <script src="js/vendor/preloadjs-0.3.1.min.js"></script>
     <script src="js/main.js"></script>
 
     <script>

@@ -92,40 +92,60 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+html,
 body {
+  height: 100%;
   background: #000;
 }
+#loading {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  color:#FFF;
+  position: absolute;
+  width:160px;
+  text-align: center;
+  font: bold 16px/30px Simsun;
+  left:50%;
+  top:50%;
+  margin:-32px 0 0 -82px;
+  border-radius: 4px;
+  -webkit-animation-duration: 4s;
+  -moz-animation-duration:4s;
+  -ms-animation-duration:4s;
+  animation-duration:4s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count:infinite;
+  -ms-animation-iteration-count:infinite;
+  animation-iteration-count:infinite;
+}
+body.bg{
+  background: url(../img/bg.jpg) center center #000;
+  background-size:cover;
+}
+header {
+  position: absolute;
+  left:50%;
+  top:50%;
+  margin-left: -375px;
+  margin-top: -435px;
+  z-index: 2;
+}
 #main-body {
-  max-width: 1600px;
-  margin:0 auto;
-  display: box;
-  display: -webkit-box;
-  display: -moz-box;
-  box-orient:horizontal;
-  -webkit-box-orient:horizontal;
-  -moz-box-orient:horizontal;
-  width:100%;
-}
-#main-body .l,
-#main-body .r {
-  box-flex:1;
-  -webkit-box-flex:1;
-  -moz-box-flex:1;
-  max-width:310px;
-  height: 859px;
-  background: url(../img/left.jpg) no-repeat right top;
-}
-#main-body .r {
-  background-image: url(../img/right.jpg);
-  background-position-x: 0;
-}
-#main-body .m {
   width: 980px;
-  background: url(../img/body.jpg) no-repeat 0 bottom;
+  height: 360px;
+  margin-left:-518px;
+  margin-top:-297px;
+  position: absolute;
+  padding: 207px 163px 130px 16px;
+  left:50%;
+  top:50%;
+  z-index: 1;
 }
-
+#main-body.bg {
+  background: url(../img/container.png) no-repeat;
+}
 #question {
-  margin:40px 0 60px 135px;
+  margin:40px 0 50px 135px;
   font:bold 24px/30px Microsoft Yahei, Simhei;
 }
 #question strong {
@@ -155,7 +175,7 @@ body {
   height: 100%;
   background: #000;
   opacity: 0.4;
-  z-index: 1;
+  z-index: 3;
   top:0;
   left:0;
 }
@@ -170,7 +190,7 @@ body {
   background: #FFF;
   border: 1px solid #CCC;
   box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  z-index: 4;
 }
 #popup .rows {
   display: box;
