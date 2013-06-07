@@ -11,10 +11,19 @@ $(function () {
     var source = $('#' + id).find('script').html();
     return Handlebars.compile(source)
   }
+  function createSign(target, type) {
+    var sign = $('<div class="sign ' + type + ' animated pulse"></div>'),
+        position = $(target).position();
+    sign
+      .css({
+        left: position.left - 30,
+        top: position.top - 20
+      })
+      .appendTo('#options');
+  }
   function showStage(index) {
     if (index >= CONFIG.length) {
       showFinalPopup();
-      $('#options').off('click');
       return;
     }
     var stageData = CONFIG[index];
@@ -30,27 +39,41 @@ $(function () {
       description: CONFIG[stage].description
     };
   }
-  function showRightPopup() {
+  function showRightPopup(target) {
     var success = getBasicInfo(stage);
-    showPopup(success);
+    success.heading = '回答正确！+10 分';
+
+    createSign(target, 'success');
+
+    setTimeout(function () {
+      showPopup(success);
+    }, 1000);
   }
-  function showWrongPopup() {
+  function showWrongPopup(target) {
     var error = getBasicInfo(stage);
-    error.options = CONFIG[stage].options.slice(1);
-    showPopup(error);
+    error.heading = '正确答案：' + error.i;
+    error.options = _.reject(CONFIG[stage].options, function (obj) {
+      return obj.isRight;
+    });
+
+    createSign(target, 'error');
+
+    setTimeout(function () {
+      showPopup(error);
+    }, 1000);
   }
   function showFinalPopup() {
-    var final = {
-      right: right * 10
-    }
+    var final;
     if (right < 6) {
-      final.description = FINAL_WORD[0].description;
+      final = FINAL_WORD[0];
     } else if (right < 10) {
-      final.description = FINAL_WORD[1].description;
+      final = FINAL_WORD[1];
     } else {
-      final.description = FINAL_WORD[2].description;
+      final = FINAL_WORD[2];
     }
+    final.right = right * 10;
     showPopup(final, 'final-popup');
+    $('#final-popup textarea').val($('#final-popup textarea').val().replace('@@', final.right));
   }
   function showPopup(data, popup) {
     popup = popup || 'popup';
@@ -104,9 +127,9 @@ $(function () {
   $('#options').on('click', 'li', function (event) {
     if (event.currentTarget.className === 'bingo') {
       right += 1;
-      showRightPopup();
+      showRightPopup(event.target);
     } else {
-      showWrongPopup();
+      showWrongPopup(event.target);
     }
     stage += 1;
   });
@@ -122,7 +145,15 @@ $(function () {
         .addClass('hidden')
         .removeClass('fadeInUp fadeOutDown');
     }, 1000);
-  })
+  });
+  $('#final-popup').on('click', '.replay-button', function (event) {
+    stage = right = 0;
+    $('#cover').addClass('hidden');
+    $('#final-popup')
+      .addClass('hidden')
+      .removeClass('fadeInUp');
+    showStage(stage);
+  });
 
   // start
   var queue = new createjs.LoadQueue();
@@ -143,7 +174,7 @@ function postToWb() {
   var _assname = encodeURI("qqdigi");//你注册的帐号，不是昵称
   var _appkey = encodeURI("100678265");//你从腾讯获得的appkey
   var _pic = encodeURI('http://demo.meathill.com/knife/img/share.jpg');//（例如：var _pic='图片url1|图片url2|图片url3....）
-  var _t = '腾讯手机 3月28日焕新上线 不破不立 我们需要你来划下“最后一刀”！';//标题和描述信息
+  var _t = $('#final-popup textarea').val();//标题和描述信息
   var metainfo = document.getElementsByTagName("meta");
   for(var metai = 0;metai < metainfo.length;metai++){
     if((new RegExp('description','gi')).test(metainfo[metai].getAttribute("name"))){
@@ -161,10 +192,10 @@ function postToWb() {
 }
 function postToWeibo() {
   var pic = encodeURIComponent('http://demo.meathill.com/knife/img/share.jpg'),
-    title = encodeURIComponent('腾讯手机 3月28日焕新上线 不破不立 我们需要你来划下“最后一刀”！'),
-    url = 'http://v.t.sina.com.cn/share/share.php?appkey=',
-    link = encodeURIComponent(document.location),
-    param = '&url=' +  link + '&title=' + title + '&source=&sourceUrl=&content=UTF-8&pic=' + pic;
+      title = encodeURIComponent($('#final-popup textarea').val()),
+      url = 'http://v.t.sina.com.cn/share/share.php?appkey=',
+      link = encodeURIComponent(document.location),
+      param = '&url=' +  link + '&title=' + title + '&source=&sourceUrl=&content=UTF-8&pic=' + pic;
   function go() {
     if (!window.open(url + param, 'mb', 'toolbar=0, status=0, resizable=1, width=440, height=430, left=' + (screen.width - 440) / 2 + ',top=' + (screen.height - 430) / 2)) {
       location.href = url + param;

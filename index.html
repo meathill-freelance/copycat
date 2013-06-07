@@ -35,7 +35,7 @@
       <ol id="options">
         <script type="text/html-template">
           {{#each options}}
-          <li{{#if isRight}} class="bingo"{{/if}}><img src="img/icons/{{icon}}" width="64" height="64" /></li>
+          <li {{#if isRight}}class="bingo"{{/if}}><img src="img/icons/{{icon}}" width="64" height="64" /></li>
           {{/each}}
         </script>
       </ol>
@@ -50,7 +50,7 @@
             <img src="img/icons/{{stage}}-0.jpg" width="120" height="120" />
           </div>
           <div class="description">
-            <h3>正确答案：{{i}}</h3>
+            <h3>{{heading}}</h3>
             <p>游戏简介：{{description}}</p>
             <button type="button" class="next-button">下一题</button>
           </div>
@@ -69,8 +69,13 @@
       <script type="text/html-template">
         <h3>恭喜你获得{{right}}分！</h3>
         <p>{{description}}</p>
-        <a href="javascript:postToWeibo();" class="share-button">分享到新浪微博</a>
-        <a href="javascript:postToWb();" class="share-button">分享到腾讯微博</a>
+        <textarea rows="3">
+           {{share}}
+        </textarea>
+        <a href="javascript:postToWeibo();" class="share-button"><img src="img/sina.gif" width="142" height="32" /></a>
+        <a href="javascript:postToWb();" class="share-button"><img src="img/qq.png" width="174" height="32" /></a>
+        <hr />
+        <button type="button" class="replay-button">再玩一次</button>
       </script>
     </div>
 
