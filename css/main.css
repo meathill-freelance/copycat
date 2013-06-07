@@ -213,12 +213,12 @@ header {
 #popup h3,
 #final-popup h3 {
   font:bold 24px/30px Microsoft Yahei, Simhei;
-  color: #2EFF43;
+  color: #61A535;
   margin:0 0 5px;
 }
 #popup p,
 #final-popup p{
-  margin:0 0 5px;
+  margin:0 0 10px;
 }
 #popup .next-button {
   padding: 0;
@@ -227,7 +227,8 @@ header {
   font:bold 16px/30px Simsun;
   color:#FFF;
   text-align: center;
-  background: linear-gradient(to bottom, #2EFF43, #2E1);
+  background: #5EA135;
+  background: linear-gradient(to bottom, #73BF37, #5EA135);
   border: none;
   cursor: pointer;
 }
