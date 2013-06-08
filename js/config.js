@@ -203,16 +203,6 @@ var CONFIG = [
         'isRight': false
       },
       {
-        'icon': '6-6.jpg',
-        'title': '水果忍者Fans',
-        'isRight': false
-      },
-      {
-        'icon': '6-7.jpg',
-        'title': '水果忍者',
-        'isRight': false
-      },
-      {
         'icon': '6-8.jpg',
         'title': '切水果',
         'isRight': false
@@ -333,7 +323,7 @@ var CONFIG = [
 var FINAL_WORD = [
   {
     'description': '看来你要提高安全意识了，在下载应用的时候一定要仔细辨别，以免再下载到危险的山寨应用。',
-    'share': '分享到微博内容：我在腾讯手机的#真假应用大找茬#中获得了@@分，你也快来考试下，和我一决高低吧！'
+    'share': '我在腾讯手机的#真假应用大找茬#中获得了@@分，你也快来考试下，和我一决高低吧！'
   },
   {
     'description': '这代表你是一个细心谨慎的人，但仍然需要提高对山寨应用的辨别意识。',

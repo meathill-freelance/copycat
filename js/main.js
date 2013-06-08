@@ -30,11 +30,14 @@ $(function () {
     stageData.index = hanzi[index];
     stageData.options = _.shuffle(stageData.options);
     $('#question').html(outputQuestion(stageData));
-    $('#options').html(outputOptions(stageData));
+    $('#options')
+      .html(outputOptions(stageData))
+      .removeClass('active');
   }
   function getBasicInfo(stage) {
     return {
       stage: stage,
+      isLast: stage === CONFIG.length - 1,
       i: String.fromCharCode($('.bingo').index() + 65),
       description: CONFIG[stage].description
     };
@@ -125,6 +128,9 @@ $(function () {
 
   // events
   $('#options').on('click', 'li', function (event) {
+    if ($('#options').hasClass('active')) {
+      return;
+    }
     if (event.currentTarget.className === 'bingo') {
       right += 1;
       showRightPopup(event.target);
@@ -132,6 +138,7 @@ $(function () {
       showWrongPopup(event.target);
     }
     stage += 1;
+    $('#options').addClass('active');
   });
   $('#popup').on('click', '.close,.next-button', function (event) {
     if ($('#popup').hasClass('fadeOutDown')) {
@@ -173,25 +180,18 @@ function postToWb() {
   var _url = encodeURIComponent(document.location);
   var _assname = encodeURI("qqdigi");//你注册的帐号，不是昵称
   var _appkey = encodeURI("100678265");//你从腾讯获得的appkey
-  var _pic = encodeURI('http://demo.meathill.com/knife/img/share.jpg');//（例如：var _pic='图片url1|图片url2|图片url3....）
+  var _pic = encodeURI('http://roudemos.sinaapp.com/copycat/img/share.jpg');//（例如：var _pic='图片url1|图片url2|图片url3....）
   var _t = $('#final-popup textarea').val();//标题和描述信息
-  var metainfo = document.getElementsByTagName("meta");
-  for(var metai = 0;metai < metainfo.length;metai++){
-    if((new RegExp('description','gi')).test(metainfo[metai].getAttribute("name"))){
-      _t = metainfo[metai].attributes["content"].value;
-    }
-  }
-  _t =  document.title+_t;//请在这里添加你自定义的分享内容
   if(_t.length > 120){
     _t= _t.substr(0,117)+'...';
   }
-  _t = encodeURI(_t);
+  _t = encodeURIComponent(_t);
 
   var _u = 'http://share.v.t.qq.com/index.php?c=share&a=index&url='+_url+'&appkey='+_appkey+'&pic='+_pic+'&assname='+_assname+'&title='+_t;
   window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
 }
 function postToWeibo() {
-  var pic = encodeURIComponent('http://demo.meathill.com/knife/img/share.jpg'),
+  var pic = encodeURIComponent('http://roudemos.sinaapp.com/copycat/img/share.jpg'),
       title = encodeURIComponent($('#final-popup textarea').val()),
       url = 'http://v.t.sina.com.cn/share/share.php?appkey=',
       link = encodeURIComponent(document.location),

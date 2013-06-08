@@ -158,6 +158,7 @@ header {
 }
 #options li {
   float:left;
+  list-style: upper-alpha;
   list-style: upper-latin;
   font:24px/30px Arial;
   margin:0 0 10px 80px;
@@ -310,6 +311,26 @@ header {
   border-radius: 4px;
 }
 
+/* for ie 6~9 */
+.lt-ie9 .rows {
+  height:120px;
+}
+.lt-ie9 #popup .icon,
+.lt-ie9 #popup .description {
+  float: left;
+}
+.lt-ie9 .others {
+  overflow: hidden;
+}
+.lt-ie9 .others li {
+  float: left;
+  margin-right: 10px;
+  width: 70px;
+  text-align: center;
+}
+.lt-ie9 .others li:last-child {
+  margin-right: 0;
+}
 
 
 
