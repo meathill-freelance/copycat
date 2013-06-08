@@ -1,0 +1,23 @@
+/**
+ * for ie 6~9
+ */
+.chromeframe strong {
+  color:#F00;
+}
+
+#popup .icon,
+#popup .description {
+  float: left;
+}
+#popup .description {
+  width:440px;
+}
+.others li {
+  float: left;
+  margin-right: 10px;
+  width: 70px;
+  text-align: center;
+}
+.others li:last-child {
+  margin-right: 0;
+}

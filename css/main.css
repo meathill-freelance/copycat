@@ -222,9 +222,11 @@ header {
   display: box;
   display: -webkit-box;
   display: -moz-box;
+  display: -ms-flexbox;
   box-orient:horizontal;
   -webkit-box-orient:horizontal;
   -moz-box-orient:horizontal;
+  -ms-flex-direction:row;
 }
 #popup .icon {
   width:120px;
@@ -234,6 +236,7 @@ header {
   box-flex:1;
   -webkit-box-flex:1;
   -moz-box-flex:1;
+  -ms-flex:1;
   font:14px/22px Simsun;
 }
 #popup h3,
@@ -265,9 +268,11 @@ header {
   display: box;
   display: -webkit-box;
   display: -moz-box;
+  display: -ms-flexbox;
   box-orient:horizontal;
   -webkit-box-orient:horizontal;
   -moz-box-orient:horizontal;
+  -ms-flex-direction:row;
 }
 .others li {
   list-style: none;
@@ -275,6 +280,7 @@ header {
   box-flex:1;
   -webkit-box-flex:1;
   -moz-box-flex:1;
+  -ms-flex:1;
   font:12px/20px simsun;
 }
 .close {
@@ -299,7 +305,7 @@ header {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
   -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
-  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -ms-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;display: inline-block;
   padding: 4px 6px;
   margin-bottom: 10px;
@@ -309,27 +315,6 @@ header {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-}
-
-/* for ie 6~9 */
-.lt-ie9 .rows {
-  height:120px;
-}
-.lt-ie9 #popup .icon,
-.lt-ie9 #popup .description {
-  float: left;
-}
-.lt-ie9 .others {
-  overflow: hidden;
-}
-.lt-ie9 .others li {
-  float: left;
-  margin-right: 10px;
-  width: 70px;
-  text-align: center;
-}
-.lt-ie9 .others li:last-child {
-  margin-right: 0;
 }
 
 

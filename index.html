@@ -14,11 +14,16 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <!--[if IE]><link rel="stylesheet" href="css/ie.css" /><![endif]-->
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <!--[if lt IE 8]>
+      <p class="chromeframe">
+        其实我们本来不想说，不过你的<strong>破浏览器</strong>真的会妨碍你享受互联网。
+        赶紧<a href="http://browsehappy.com/" target="_blank">换个好的</a>吧，
+        欢迎加入<a href="http://www.google.com/chromeframe/?redirect=true" target="_blank">Chrome</a>大家庭
+      </p>
     <![endif]-->
 
     <div id="loading" class="animated flash">
@@ -46,7 +51,7 @@
     <div id="popup" class="hidden">
       <script type="text/html-template">
         <button type="button" class="close">&times;</button>
-        <div class="rows">
+        <div class="rows clearfix">
           <div class="icon">
             <img src="img/icons/{{stage}}-0.jpg" width="120" height="120" />
           </div>
@@ -62,7 +67,7 @@
             </button>
           </div>
         </div>
-        <ul class="others">
+        <ul class="others clearfix">
           {{#each options}}
           <li>
             <img src="img/icons/{{icon}}" width="64" height="64" /><br />
