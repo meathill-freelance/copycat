@@ -181,6 +181,18 @@ header {
   height:101px;
   background-image: url(../img/wrong.png);
 }
+#subtitle {
+  text-align: right;
+  position: absolute;
+  right: 390px;
+  bottom: 15px;
+  width: 400px;
+  color: #FFF;
+  font:14px/20px Simsun;
+}
+#subtitle span {
+  margin-right: 30px;
+}
 
 #cover {
   position: absolute;
@@ -199,10 +211,10 @@ header {
   position: absolute;
   top:470px;
   left:50%;
-  margin-left: -310px;
+  margin-left: -320px;
   background: #FFF;
-  border: 1px solid #CCC;
-  box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.2);
+  border: 5px solid #649CAE;
+  box-shadow: 0 4px 8px 1px rgba(0, 0, 0, 0.3);
   z-index: 4;
 }
 #popup .rows {
@@ -226,7 +238,7 @@ header {
 #popup h3,
 #final-popup h3 {
   font:bold 24px/30px Microsoft Yahei, Simhei;
-  color: #61A535;
+  color: #649CAF;
   margin:0 0 5px;
 }
 #popup p,
@@ -241,8 +253,8 @@ header {
   font:bold 16px/30px Simsun;
   color:#FFF;
   text-align: center;
-  background: #5EA135;
-  background: linear-gradient(to bottom, #73BF37, #5EA135);
+  background: #447E95;
+  background: linear-gradient(to bottom, #6198AD, #447E95);
   border: none;
   cursor: pointer;
 }
