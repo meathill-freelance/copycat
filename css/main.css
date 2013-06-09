@@ -130,6 +130,13 @@ header {
   margin-top: -435px;
   z-index: 2;
 }
+#logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -190px;
+  margin-top: -415px;
+}
 #main-body {
   width: 980px;
   height: 360px;
@@ -186,13 +193,21 @@ header {
   text-align: right;
   position: absolute;
   right: 390px;
-  bottom: 15px;
+  bottom: 10px;
   width: 400px;
   color: #FFF;
-  font:14px/20px Simsun;
+  font:bold 18px/25px Microsoft Yahei, Simhei;
+}
+#subtitle a {
+  color:#FFF;
+  text-decoration: none;
+}
+#subtitle a:hover {
+  color:#649CAF;
+  text-decoration: underline;
 }
 #subtitle span {
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 #cover {

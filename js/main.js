@@ -98,8 +98,8 @@ $(function () {
         .addClass('bg animated fadeInUp');
     }, 500);
 
-    var img = queue.getResult('heading');
     setTimeout(function () {
+      var img = queue.getResult('heading');
       $('header')
         .append(img)
         .removeClass('hidden')
@@ -107,6 +107,12 @@ $(function () {
     }, 1000);
 
     setTimeout(function () {
+      var img = queue.getResult('logo');
+      $('#logo')
+        .append(img)
+        .removeClass('hidden')
+        .addClass('animated bounceIn');
+
       init();
       showStage(stage);
     }, 2000);
@@ -174,6 +180,7 @@ $(function () {
   queue.loadFile({id: 'bg', src: 'img/bg.jpg'});
   queue.loadFile({id: 'container', src: 'img/container.png'});
   queue.loadFile({id: 'heading', src: 'img/heading.png'});
+  queue.loadFile({id: 'logo', src: 'img/logo.png'});
 });
 
 function postToWb() {
